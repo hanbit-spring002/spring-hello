@@ -16,5 +16,17 @@
 	 WHERE title LIKE CONCAT('%', #{keyword} , '%')
 	 ORDER BY no DESC
   </select>
+  
+  <insert id="insertArticle" parameterType="articleVO">
+  	INSERT INTO tbl_board
+  		(title, contents, update_dt)
+  	VALUES
+  		(#{title}, #{contents}, NOW())
+  </insert>
 
 </mapper>
+
+
+
+
+

@@ -21,5 +21,9 @@ public class BoardDAO {
 	public List<ArticleVO> searchList(String keyword) {
 		return sqlSession.selectList("board.searchList", keyword);
 	}
+
+	public int insertArticle(ArticleVO articleVO) {
+		return sqlSession.insert("board.insertArticle", articleVO);		
+	}
 	
 }

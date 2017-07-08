@@ -21,5 +21,9 @@ public class BoardService {
 	public List<ArticleVO> search(String keyword) {
 		return boardDAO.searchList(keyword);
 	}
+
+	public void addArticle(ArticleVO articleVO) {
+		boardDAO.insertArticle(articleVO);		
+	}
 	
 }
