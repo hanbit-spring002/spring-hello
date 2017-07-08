@@ -9,5 +9,9 @@ public class HelloDAO {
 
 	@Autowired
 	private SqlSession sqlSession;
+
+	public int selectDual(int no) {
+		return sqlSession.selectOne("dual.selectDual", no);
+	}
 	
 }

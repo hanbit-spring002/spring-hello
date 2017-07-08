@@ -4,8 +4,8 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="dual">
 
-  <select id="selectDual" resultType="int">
-  	SELECT 1 FROM DUAL
+  <select id="selectDual" parameterType="int" resultType="int">
+  	SELECT #{no} FROM DUAL
   </select>
 
 </mapper>

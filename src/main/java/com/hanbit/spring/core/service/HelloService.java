@@ -11,4 +11,8 @@ public class HelloService {
 	@Autowired
 	private HelloDAO helloDAO;
 	
+	public int getDual(int no) {
+		return helloDAO.selectDual(no);
+	}
+	
 }
