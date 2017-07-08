@@ -33,6 +33,11 @@ public class BoardController {
 		return boardService.search(keyword);
 	}
 	
+	@RequestMapping("/board/write")
+	public String wrtie() {
+		return "board/write";
+	}
+	
 }
 
 

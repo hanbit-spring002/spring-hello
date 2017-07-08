@@ -38,7 +38,7 @@ List<ArticleVO> list = (List<ArticleVO>) request.getAttribute("list");
 <button id="btn-search">검색</button>
 
 <div class="board-btns">
-	<button class="btn btn-primary">글쓰기</button>
+	<button id="btn-write" class="btn btn-primary">글쓰기</button>
 </div>
 <script src="https://unpkg.com/jquery@3.2.1/dist/jquery.min.js"></script>
 <script src="https://unpkg.com/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>

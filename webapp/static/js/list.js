@@ -1,4 +1,8 @@
 $(function() {
+	$('#btn-write').on('click', function() {
+		location.href = '/board/write';
+	});	
+	
 	$('#btn-search').on('click', function() {
 		var keyword = $('#txt-keyword').val();
 		
