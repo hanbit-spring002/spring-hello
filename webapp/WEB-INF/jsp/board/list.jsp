@@ -33,13 +33,16 @@ List<ArticleVO> list = (List<ArticleVO>) request.getAttribute("list");
 		<% } %>
 	</tbody>
 </table>
-<input type="text">
-<button>검색</button>
+
+<input type="text" id="txt-keyword">
+<button id="btn-search">검색</button>
+
 <div class="board-btns">
 	<button class="btn btn-primary">글쓰기</button>
 </div>
 <script src="https://unpkg.com/jquery@3.2.1/dist/jquery.min.js"></script>
 <script src="https://unpkg.com/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+<script src="/static/js/list.js"></script>
 </body>
 </html>
 
