@@ -33,6 +33,8 @@ List<ArticleVO> list = (List<ArticleVO>) request.getAttribute("list");
 		<% } %>
 	</tbody>
 </table>
+<input type="text">
+<button>검색</button>
 <div class="board-btns">
 	<button class="btn btn-primary">글쓰기</button>
 </div>

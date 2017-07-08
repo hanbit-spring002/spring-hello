@@ -7,5 +7,9 @@
 	<settings>
 		<setting name="mapUnderscoreToCamelCase" value="true" />
 	</settings>
+	
+	<typeAliases>
+		<typeAlias type="com.hanbit.spring.core.vo.ArticleVO" alias="articleVO" />
+	</typeAliases>
 
 </configuration>

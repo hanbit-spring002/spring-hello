@@ -18,4 +18,8 @@ public class BoardDAO {
 		return sqlSession.selectList("board.selectList");
 	}
 	
+	public List<ArticleVO> searchList(String keyword) {
+		return sqlSession.selectList("board.searchList", keyword);
+	}
+	
 }

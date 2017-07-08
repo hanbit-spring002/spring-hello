@@ -18,4 +18,8 @@ public class BoardService {
 		return boardDAO.selectList();
 	}
 	
+	public List<ArticleVO> search(String keyword) {
+		return boardDAO.searchList(keyword);
+	}
+	
 }
