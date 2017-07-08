@@ -1,5 +1,10 @@
+<%@page import="com.hanbit.spring.core.vo.ArticleVO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+List<ArticleVO> list = (List<ArticleVO>) request.getAttribute("list");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,12 +23,14 @@
 		</tr>
 	</thead>
 	<tbody>
+		<% for (ArticleVO article : list) { %>
 		<tr>
-			<td>1</td>
-			<td>안녕하세요.</td>
-			<td>12</td>
-			<td>2017-07-08</td>
+			<td><%=article.getNo() %></td>
+			<td><%=article.getTitle() %></td>
+			<td><%=article.getViews() %></td>
+			<td><%=article.getUpdateDt() %></td>
 		</tr>
+		<% } %>
 	</tbody>
 </table>
 <div class="board-btns">
