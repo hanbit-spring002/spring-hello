@@ -7,6 +7,27 @@
   <display-name>spring-hello</display-name>
   
   <listener>
+  	<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+  </listener>
+  
+  <context-param>
+  	<param-name>log4jConfigLocation</param-name>
+  	<param-value>classpath:log/log4j.xml</param-value>
+  </context-param>
+  
+  <listener>
+  	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  
+  <context-param>
+  	<param-name>contextConfigLocation</param-name>
+  	<param-value>
+  		classpath:spring/context-core.xml
+  		classpath:spring/context-database.xml
+  	</param-value>
+  </context-param>
+  
+  <listener>
   	<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
   </listener>
   
