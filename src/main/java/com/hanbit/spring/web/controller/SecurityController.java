@@ -33,6 +33,14 @@ public class SecurityController {
 		if ("abcd@abcd.com".equals(email) && "1234".equals(passwd)) {
 			session.setAttribute("signedIn", true);
 			session.setAttribute("email", email);
+			session.setAttribute("role", "USER");
+			
+			res.sendRedirect("/");
+		}
+		else if ("ceo@abcd.com".equals(email) && "1234".equals(passwd)) {
+			session.setAttribute("signedIn", true);
+			session.setAttribute("email", email);
+			session.setAttribute("role", "CEO");
 			
 			res.sendRedirect("/");
 		}

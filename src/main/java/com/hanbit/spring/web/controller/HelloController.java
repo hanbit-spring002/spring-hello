@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.hanbit.spring.core.annotation.SigninRequired;
 import com.hanbit.spring.core.service.HelloService;
 
 @Controller
@@ -37,6 +38,7 @@ public class HelloController {
 		return result;
 	}
 
+	@SigninRequired
 	@RequestMapping("/hello")
 	public String hello() {
 		return "hello"; //     WEB-INF/jsp/hello.jsp

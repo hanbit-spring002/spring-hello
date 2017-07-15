@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.hanbit.spring.core.annotation.SigninRequired;
 import com.hanbit.spring.core.service.BoardService;
 import com.hanbit.spring.core.vo.ArticleVO;
 
@@ -26,6 +27,7 @@ public class BoardController {
 	@Autowired
 	private BoardService boardService;
 
+	@SigninRequired
 	@RequestMapping("/")
 	public String list(Model model) {
 		model.addAttribute("list", boardService.getList());
@@ -41,6 +43,7 @@ public class BoardController {
 		return boardService.search(keyword);
 	}
 	
+	@SigninRequired({"ADMIN", "CEO"})
 	@RequestMapping("/board/write")
 	public String wrtie() {
 		return "board/write";
