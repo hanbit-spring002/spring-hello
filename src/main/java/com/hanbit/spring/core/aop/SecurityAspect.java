@@ -9,7 +9,7 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
-import org.springframework.http.MediaType;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -17,6 +17,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import com.hanbit.spring.core.annotation.SigninRequired;
 
 @Aspect
+@Order(20)
 @Component
 public class SecurityAspect {
 
@@ -37,17 +38,7 @@ public class SecurityAspect {
 		Class returnType = signature.getReturnType();
 		
 		if (signedIn == null || !signedIn) {
-			if (returnType == String.class) {
-				res.sendRedirect("/signin");
-				res.flushBuffer();
-			}
-			else {
-				String json = "{\"error\":\"로그인이 필요합니다.\"}";
-				res.setHeader("Content-Type", MediaType.APPLICATION_JSON_UTF8_VALUE);
-				res.getOutputStream().write(json.getBytes("UTF-8"));
-				res.sendError(401, "로그인이 필요합니다.");
-				return null;
-			}
+			throw new SecurityException("로그인이 필요합니다.");
 		}
 		else {
 			SigninRequired signinRequired
@@ -57,8 +48,7 @@ public class SecurityAspect {
 			String role = (String) session.getAttribute("role");
 			
 			if (roles.length > 0 && !ArrayUtils.contains(roles, role)) {
-				res.setHeader("Content-Type", MediaType.APPLICATION_JSON_UTF8_VALUE);
-				res.sendError(401, "권한이 없습니다.");
+				throw new SecurityException("권한이 없습니다.");
 			}
 		}
 		
