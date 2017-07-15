@@ -57,7 +57,7 @@ public class FirstAop {
 		LOGGER.debug("hello service will be called");
 	}*/
 	
-	@Around("pointCutBoard()")
+	/*@Around("pointCutBoard()")
 	public Object aroundBoardService(ProceedingJoinPoint pjp) {
 		MethodSignature signature = (MethodSignature) pjp.getSignature();
 		Method method = signature.getMethod();
@@ -85,7 +85,7 @@ public class FirstAop {
 			// AfterThrowing
 			throw new RuntimeException("점검 시간입니다.");
 		}
-	}
+	}*/
 	
 }
 
